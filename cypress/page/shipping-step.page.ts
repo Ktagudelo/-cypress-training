@@ -1,15 +1,18 @@
 class ShippingSteptPage {
   private termsOfService: string;
-  private buttonShipping: string;
+  private proceedToCheckoutButton: string;
 
   constructor() {
     this.termsOfService = "#cgv";
-    this.buttonShipping = ".cart_navigation.clearfix > button";
+    this.proceedToCheckoutButton = ".cart_navigation.clearfix > button";
   }
 
-  public submitShipping(): void {
+  public addTermsOfService(): void {
     cy.get(this.termsOfService).click();
-    cy.get(this.buttonShipping).click();
+  }
+
+  public goToCheckout(): void {
+    cy.get(this.proceedToCheckoutButton).click();
   }
 }
 

@@ -12,6 +12,9 @@ class ProductsListPage {
   public goToAddToCart(): void {
     cy.get(this.containerCart).click();
     cy.get(this.addToCart).click();
+  }
+
+  public goToCheckout(): void {
     cy.get(this.product).click();
   }
 }

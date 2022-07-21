@@ -5,7 +5,7 @@ class AddressStepPage {
     this.address = ".cart_navigation.clearfix > button";
   }
 
-  public submitAddress(): void {
+  public goToCheckout(): void {
     cy.get(this.address).click();
   }
 }
