@@ -28,11 +28,11 @@ describe("Buy a t-shirt", () => {
     shopingCartPage.goToCheckout();
     loginPage.loginUser(email, password);
     addressStepPage.goToCheckout();
-    shippingSteptPage.addTermsOfService();
+    shippingSteptPage.acceptTermsOfService();
     shippingSteptPage.goToCheckout();
     paymentStepPage.goToPaymentStep();
     paymentStepPage.confirmOrder();
-    paymentStepPage.confirmMessageOrder().should(
+    paymentStepPage.getConfirmMessageOrder().should(
         "have.text",
         "Your order on My Store is complete.");
   });

@@ -17,7 +17,7 @@ class PaymentStepPage {
     cy.get(this.order).click();
   }
 
-  public confirmMessageOrder() {
+  public getConfirmMessageOrder() {
     return cy.get(this.messageOrder);
   }
 }

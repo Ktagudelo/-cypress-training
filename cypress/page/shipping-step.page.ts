@@ -7,7 +7,7 @@ class ShippingSteptPage {
     this.proceedToCheckoutButton = ".cart_navigation.clearfix > button";
   }
 
-  public addTermsOfService(): void {
+  public acceptTermsOfService(): void {
     cy.get(this.termsOfService).click();
   }
 
