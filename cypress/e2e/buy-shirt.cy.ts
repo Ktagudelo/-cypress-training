@@ -1,28 +1,41 @@
+import {
+  AddressStepPage,
+  LoginPage,
+  MenuContentPage,
+  PaymentStepPage,
+  ProductsListPage,
+  ShippingSteptPage,
+  ShopingCartPage,
+} from "../page/index";
+
+const email = "aperdomobo@gmail.com";
+const password = "WorkshopProtractor";
+
+const menuContentPage = new MenuContentPage();
+const productListPage = new ProductsListPage();
+const shopingCartPage = new ShopingCartPage();
+const loginPage = new LoginPage();
+const paymentStepPage = new PaymentStepPage();
+const addressStepPage = new AddressStepPage();
+const shippingSteptPage = new ShippingSteptPage();
+
 describe("Buy a t-shirt", () => {
-  it("then the t-shirt should be bought", () => {
-    cy.visit("http://automationpractice.com/");
-    cy.get("#block_top_menu > ul > li:nth-child(3) > a").click();
-    cy.get(
-        "#center_column a.button.ajax_add_to_cart_button.btn.btn-default",
-    ).click();
-    cy.get("[style*='display: block;'] .button-container > a").click();
-    cy.get(".cart_navigation span").click();
-
-    cy.get("#email").type("aperdomobo@gmail.com");
-    cy.get("#passwd").type("WorkshopProtractor");
-
-    // Debes completar la prueba ...
-    cy.get("#SubmitLogin").click();
-    cy.get(".cart_navigation.clearfix > button").click();
-    cy.get("#cgv").click();
-    cy.get(".cart_navigation.clearfix > button").click();
-    cy.get(".bankwire").click();
-    cy.get(".cart_navigation.clearfix > button").click();
-
-
-    cy.get("#center_column > div > p > strong").should(
+  it("then should be bought a t-shirt", () => {
+    menuContentPage.visitMenuContentPage();
+    menuContentPage.goToTShirtMenu();
+    productListPage.goToAddToCart();
+    productListPage.goToCheckout();
+    shopingCartPage.goToCheckout();
+    loginPage.loginUser(email, password);
+    addressStepPage.goToCheckout();
+    shippingSteptPage.acceptTermsOfService();
+    shippingSteptPage.goToCheckout();
+    paymentStepPage.goToPaymentStep();
+    paymentStepPage.confirmOrder();
+    paymentStepPage.getConfirmMessageOrder().should(
         "have.text",
-        "Your order on My Store is complete.",
-    );
+        "Your order on My Store is complete.");
   });
 });
+
+
