@@ -2,11 +2,11 @@ class AddressStepPage {
   private address: string;
 
   constructor() {
-    this.address = ".cart_navigation.clearfix > button";
+    this.address = "Proceed to checkout";
   }
 
   public goToCheckout(): void {
-    cy.get(this.address).click();
+    cy.get("p").contains(this.address).click();
   }
 }
 

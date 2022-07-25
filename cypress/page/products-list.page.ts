@@ -5,17 +5,17 @@ class ProductsListPage {
 
   constructor() {
     this.containerCart = ".available-now";
-    this.addToCart = ".button.ajax_add_to_cart_button.btn.btn-default";
-    this.product = ".button-container span .icon-chevron-right";
+    this.addToCart = ".ajax_add_to_cart_button";
+    this.product = "Proceed to checkout";
   }
 
   public goToAddToCart(): void {
     cy.get(this.containerCart).click();
-    cy.get(this.addToCart).click();
+    cy.get(this.addToCart).children("span").click();
   }
 
   public goToCheckout(): void {
-    cy.get(this.product).click();
+    cy.get("div").contains(this.product).click();
   }
 }
 

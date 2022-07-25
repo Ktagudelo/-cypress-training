@@ -4,7 +4,7 @@ class MenuContentPage {
 
   constructor() {
     this.menuContentPageURL = "http://automationpractice.com/";
-    this.tShirtMenu = "#block_top_menu > ul > li:nth-child(3) > a";
+    this.tShirtMenu = "T-shirts";
   }
 
   public visitMenuContentPage(): void {
@@ -12,7 +12,7 @@ class MenuContentPage {
   }
 
   public goToTShirtMenu(): void {
-    cy.get(this.tShirtMenu).click();
+    cy.get(".sf-menu ").children("li").children("a").contains(this.tShirtMenu).click();
   }
 }
 

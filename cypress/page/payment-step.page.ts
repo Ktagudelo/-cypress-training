@@ -5,8 +5,8 @@ class PaymentStepPage {
 
   constructor() {
     this.payBank = ".bankwire";
-    this.order = ".cart_navigation.clearfix > button";
-    this.messageOrder = "#center_column > div > p > strong";
+    this.order = ".cart_navigation";
+    this.messageOrder = ".dark";
   }
 
   public goToPaymentStep(): void {
@@ -14,11 +14,11 @@ class PaymentStepPage {
   }
 
   public confirmOrder(): void {
-    cy.get(this.order).click();
+    cy.get(this.order).contains("I confirm my order").click();
   }
 
   public getConfirmMessageOrder() {
-    return cy.get(this.messageOrder);
+    return cy.get("strong").get(this.messageOrder).contains("Your order on My Store is complete.");
   }
 }
 export {PaymentStepPage};
