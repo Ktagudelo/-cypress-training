@@ -1,12 +1,12 @@
 class AddressStepPage {
-  private address: string;
+  private processAddress: string;
 
   constructor() {
-    this.address = "Proceed to checkout";
+    this.processAddress = "processAddress";
   }
 
   public goToCheckout(): void {
-    cy.get("p").contains(this.address).click();
+    cy.get(`[name=${this.processAddress}]`).click();
   }
 }
 

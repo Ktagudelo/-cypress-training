@@ -1,12 +1,14 @@
 class ShopingCartPage {
   private proceedToCheckoutButton: string;
+  private textCheckoutButton: string;
 
   constructor() {
-    this.proceedToCheckoutButton = "Proceed to checkout";
+    this.proceedToCheckoutButton = ".cart_navigation .button";
+    this.textCheckoutButton = "Proceed to checkout";
   }
 
   public goToCheckout(): void {
-    cy.get("p").contains(this.proceedToCheckoutButton).click();
+    cy.contains( this.proceedToCheckoutButton, this.textCheckoutButton).click();
   }
 }
 
