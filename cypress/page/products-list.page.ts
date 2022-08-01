@@ -6,7 +6,7 @@ class ProductsListPage {
 
   constructor() {
     this.containerCart = ".available-now";
-    this.addToCart = ".ajax_add_to_cart_button span";
+    this.addToCart = "[title='Add to cart']";
     this.product = "Proceed to checkout";
     this.buttonContainer = ".button-container";
   }

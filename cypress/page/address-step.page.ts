@@ -1,12 +1,14 @@
 class AddressStepPage {
   private processAddress: string;
+  private address: string;
 
   constructor() {
-    this.processAddress = "processAddress";
+    this.address = "Proceed to checkout";
+    this.processAddress = "[name='processAddress']";
   }
 
   public goToCheckout(): void {
-    cy.get(`[name=${this.processAddress}]`).click();
+    cy.get(this.processAddress).click();
   }
 }
 

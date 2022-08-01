@@ -4,7 +4,7 @@ class ShippingSteptPage {
 
   constructor() {
     this.termsOfService = "#cgv";
-    this.processCarrier = "processCarrier";
+    this.processCarrier = "[name='processCarrier']";
   }
 
   public acceptTermsOfService(): void {
@@ -12,7 +12,7 @@ class ShippingSteptPage {
   }
 
   public goToCheckout(): void {
-    cy.get(`[name=${this.processCarrier}]`).click();
+    cy.get(this.processCarrier).click();
   }
 }
 
