@@ -1,9 +1,7 @@
 class AddressStepPage {
   private processAddress: string;
-  private address: string;
 
   constructor() {
-    this.address = "Proceed to checkout";
     this.processAddress = "[name='processAddress']";
   }
 
